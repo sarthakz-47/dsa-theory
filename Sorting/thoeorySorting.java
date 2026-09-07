@@ -6,7 +6,6 @@
 // outer loop runs for (n-1) times and inner loop runs for (n-i-1) times to ignore last sorted array largest element goes to end of the array
 
 import java.util.Arrays;
-import java.util.Collections;
 
 class TheeorySorting {
     public static void bubbleSort(int arr[]) {
