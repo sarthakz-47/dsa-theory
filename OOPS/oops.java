@@ -67,6 +67,10 @@ class OOPS {
         // AnimalX ax = new AnimalX(); // cannot call due to abstract
         Horse h =new Horse();
         h.wallk();
+
+
+        Goat g1 = new Goat();
+        g1.makeSound();  
     }
 }
 
@@ -319,5 +323,29 @@ class Horse extends AnimalX{
 
     Horse(){
         System.out.println("Horse constructor called");
+    }
+}
+
+// Interfaces:
+// all methods in interfaces are pulic, abstarct and without implementation by default
+// this is used to acheive full abstraction
+// variables in interface are final, static and public by default
+
+interface AnimalY{
+    // by default abstract, public and withould implementation:
+    void makeSound();
+}
+
+// use implements to use interface:
+class Cow implements AnimalY{
+    // must to imlpement makeSound() to achieve interface
+    public void makeSound(){
+        System.out.println("MOO");
+    }
+}
+
+class Goat implements AnimalY{
+    public void makeSound(){
+        System.out.println("MEHEE");
     }
 }
