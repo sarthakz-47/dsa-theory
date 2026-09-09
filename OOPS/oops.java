@@ -51,6 +51,22 @@ class OOPS {
         // multi level inheritance:
         Cat c = new Cat();
         c.eat();
+
+        // polymorphism: Method overloading
+        Calculator cl = new Calculator();
+        cl.sum(2,3);
+        cl.sum(1.4f,32.3f);
+        cl.sum(1,1,1);
+
+        // Method Overriding
+        Gajni g = new Gajni();
+        g.start();
+
+
+        // Abstraction
+        // AnimalX ax = new AnimalX(); // cannot call due to abstract
+        Horse h =new Horse();
+        h.wallk();
     }
 }
 
@@ -243,4 +259,65 @@ class Decoration extends Hall{
     float rating;
 }
 
+// Polymorphism
+// many  + forms:
 
+// Compile time polymorphism: Method Overloading
+// same fnx name + diffrent parametrs || count of parameters
+class Calculator{
+    int sum(int a,int b){
+        return a+b;
+    }
+    float sum(float a,float b){
+        return a+b;
+    }
+    int sum(int a,int b,int c){
+        return a+b+c;
+    }
+}
+
+// Run time polymorphism: Marhod Overriding
+// when a class is derived from base class and both have same methods defined then child class method runs:
+class Theater{
+    void start(){
+        System.out.println("starts in 3..2..1..");
+    }
+}
+
+class Gajni extends Theater{
+    // g.start()-> this method will run during run time polymorphism not t.start()
+    void start(){
+        System.out.println("started Gajni");
+    }
+}
+
+
+// Abstraction: hides uneccesary data + shows importatnt data to useer:
+// 1.using abstract classes:
+
+// defined using abstract keyword:
+abstract class AnimalX{
+    // normal method:
+    void eat(){
+        System.out.println("animal eats");
+    }
+
+    // abstract method: do not initialize the method to implement this extend the abstarct class
+    abstract void wallk();
+
+    // can have constructors:
+    AnimalX(){
+        System.out.println("AnimalX constructor called");
+    }
+}
+
+class Horse extends AnimalX{
+    // now we must need to implement Wallk() method here:
+    void wallk(){
+        System.out.println("4legs");
+    }
+
+    Horse(){
+        System.out.println("Horse constructor called");
+    }
+}
